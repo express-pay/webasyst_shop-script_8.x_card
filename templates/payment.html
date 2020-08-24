@@ -1,0 +1,14 @@
+<form id="payment-form" action="{$url}" method="post" target="_top"{foreach $form_options as $k=>$v} {$k|escape}="{$v|escape}"{/foreach}>
+    {foreach from=$hidden_fields key=name item=value}
+    <input type="hidden" name="{$name}" value="{$value|escape}" />
+    {/foreach}
+    {if $auto_submit}
+    <i class="icon16 loading"></i> <em>Подождите, выполняется запрос...</em>
+    <br /><br />
+    <script type="text/javascript">
+           setTimeout(function () {
+           document.getElementById('payment-form').submit();
+        }, 4000);
+    </script>
+    {/if}
+</form>
